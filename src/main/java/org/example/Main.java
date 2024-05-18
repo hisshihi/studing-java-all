@@ -1,18 +1,27 @@
 package org.example;
 
+import org.example.tasks.Task1;
 import org.example.time.TimeInterval;
 
 public class Main {
     public static void main(String[] args) {
 
-        TimeInterval timeInterval = new TimeInterval(234, 545, 22);
+//        this task 1
+        Task1 task1 = new Task1();
+        System.out.println(task1.replace());
 
-        int total = timeInterval.totalSeconds(33, 35, 45);
-        timeInterval.print();
-        System.out.println("Всего секунд - " + total);
+//        this task 2
+        System.out.println(task1.beginsAndEnds("Eye in eye", "eye"));
 
-        String string1 = "Hello World";
-        System.out.println(string1.toLowerCase().endsWith("world"));
+//        this task 3
+        System.out.println(task1.fio("Kozykhin", "Denis", "Dmintrievich"));
+
+//        this task 4
+        System.out.println(task1.сountingСommasAndExclamationMarksInALine("sadf , aasfd.!afdsf34,,"));
+
+//        this task 5
+
+        System.out.println(task1.split("Hello I`am Denis", 3));
 
     }
 }
