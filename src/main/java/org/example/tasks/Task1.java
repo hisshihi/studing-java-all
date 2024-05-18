@@ -67,5 +67,17 @@ public class Task1 {
         return Arrays.toString(result);
     }
 
+//    Изучение StringBuffer and StringBuilder
+    public long test() {
+        long startTime = System.currentTimeMillis();
+        StringBuilder value = new StringBuilder();
+        for (int i = 0; i < 1000000; i++) {
+            value.append(i);
+
+        }
+        long endTime = System.currentTimeMillis();
+        return endTime - startTime;
+    }
+
 
 }

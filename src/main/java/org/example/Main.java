@@ -23,5 +23,8 @@ public class Main {
 
         System.out.println(task1.split("Hello I`am Denis", 3));
 
+//        Проверка как работает string buffer and string builder
+        System.out.println(task1.test());
+
     }
 }
