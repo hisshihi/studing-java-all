@@ -1,6 +1,8 @@
 package org.example.tasks;
 
 import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class Task1 {
 
@@ -35,9 +37,9 @@ public class Task1 {
     }
 
     /*
-    * 5. Написать функцию, разбивающую строку на равные части по п символов и
-    * сохраняющую отдельные части в массив. Вывести этот массив.
-    * */
+     * 5. Написать функцию, разбивающую строку на равные части по п символов и
+     * сохраняющую отдельные части в массив. Вывести этот массив.
+     * */
     public String split(String word, int n) {
         // 1. determining the size of the array
         int arraySize = (int) Math.ceil(word.length() / (double) n);
@@ -67,7 +69,7 @@ public class Task1 {
         return Arrays.toString(result);
     }
 
-//    Изучение StringBuffer and StringBuilder
+    //    Изучение StringBuffer and StringBuilder
     public long test() {
         long startTime = System.currentTimeMillis();
         StringBuilder value = new StringBuilder();
@@ -78,6 +80,23 @@ public class Task1 {
         long endTime = System.currentTimeMillis();
         return endTime - startTime;
     }
+
+//    Из строки с одинковыми символами имеющая пробелы найти все символы в единственном экземпляре,
+//    записать их все в одну строку и в формате upperCase
+    public String taskHome1(String word) {
+        Set<Character> uniqueChars = new LinkedHashSet<>();
+        String processedInput = word.replaceAll(" ", "").toUpperCase();
+
+        for (char c : processedInput.toCharArray()) {
+            uniqueChars.add(c);
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        for (char c : uniqueChars) {
+            stringBuilder.append(c);
+        }
+        return stringBuilder.toString();
+    }
+
 
 
 }
