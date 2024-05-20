@@ -8,8 +8,25 @@ public class Laptop extends Computer{
     private int weight;
 
     public Laptop(Ram ram, Ssd ssd, int weight) {
-        super(ram, ssd);
+        super();
         this.weight = weight;
+    }
+
+    public Laptop() {
+        System.out.println("Constructor laptop");
+    }
+
+    /*
+    * Блоки инициализации
+    * Используются редко
+    * */
+
+    {
+        System.out.println("init block laptop");
+    }
+
+    static {
+        System.out.println("static block laptop");
     }
 
     public void printState() {
