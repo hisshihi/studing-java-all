@@ -10,7 +10,8 @@ public class Main {
         Computer mobile = new Mobile(new Ram(8), new Ssd(128));
 
 //        loadComputers(laptop, mobile);
-        printStaticInfo(new Computer[] {laptop, mobile});
+//        printStaticInfo(new Computer[] {laptop, mobile});
+        print(laptop, mobile);
     }
 
     public static void loadComputers(Computer... computers) {
@@ -26,5 +27,11 @@ public class Main {
                 laptop.open();
             }
         }
-    } 
+    }
+
+    public static void print(Printable... objects) {
+        for (Printable object : objects) {
+            object.printState();
+        }
+    }
 }

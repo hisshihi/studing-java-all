@@ -1,11 +1,12 @@
 package org.example.computer;
 
-public abstract class Computer {
+public abstract class Computer implements Printable {
 
     private Ram ram;
     private Ssd ssd;
     private static int count = 0;
 
+    @Override
     public void printState() {
         System.out.println("Computer: ram " + ram.getValue() + " ssd " + ssd.getValue());
     }
