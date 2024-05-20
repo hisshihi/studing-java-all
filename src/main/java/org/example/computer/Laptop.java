@@ -9,14 +9,15 @@ public final class Laptop extends Computer{
 
     private int weight;
 
+    public int getWeight() {
+        return weight;
+    }
+
     public Laptop(Ram ram, Ssd ssd, int weight) {
-        super();
+        super(ram, ssd);
         this.weight = weight;
     }
 
-    public Laptop() {
-        System.out.println("Constructor laptop");
-    }
 
     @Override
     public void open() {
@@ -28,18 +29,18 @@ public final class Laptop extends Computer{
     * Используются редко
     * */
 
-    {
+    /*{
         System.out.println("init block laptop");
     }
 
     static {
         System.out.println("static block laptop");
-    }
+    }*/
 
     public void printState() {
         Ssd ssd = new Ssd(512);
         setSsd(ssd);
-        System.out.println("Laptop: ram " + getRam().getValue() + " ssd " + getSsd().getValue());
+        System.out.println("Laptop: ram " + getRam().getValue() + " ssd " + getSsd().getValue() + " weight " + getWeight());
     }
 
 

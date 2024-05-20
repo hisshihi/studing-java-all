@@ -16,17 +16,13 @@ public abstract class Computer {
         count++;
     }
 
-    public Computer() {
-        System.out.println("Construct computer");
-    }
-
-    {
+    /*{
         System.out.println("init block computer");
     }
 
     static {
         System.out.println("static block computer");
-    }
+    }*/
 
     public abstract void open();
 
