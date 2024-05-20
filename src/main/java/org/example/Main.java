@@ -7,7 +7,9 @@ public class Main {
 
 //        Laptop -> Computer -> Object
 //        Laptop <- Computer <- Object
-        new Laptop();
+        Laptop laptop = new Laptop();
+        laptop.open();
+
 
     }
 }

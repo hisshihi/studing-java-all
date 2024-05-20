@@ -1,6 +1,8 @@
 package org.example.computer;
 
-public class Laptop extends Computer{
+// final обозначает, что никто не может наследоваться от этого класса.
+// final и abstract нельзя писать вместе, потому что они противоречат друг другу
+public final class Laptop extends Computer{
 
 //    Super - вызываем конструктор суперкласса,
 //    с помощью него можем получить значения конструктора родительского класса
@@ -14,6 +16,11 @@ public class Laptop extends Computer{
 
     public Laptop() {
         System.out.println("Constructor laptop");
+    }
+
+    @Override
+    public void open() {
+        System.out.println("Laptop is open");
     }
 
     /*
@@ -35,9 +42,7 @@ public class Laptop extends Computer{
         System.out.println("Laptop: ram " + getRam().getValue() + " ssd " + getSsd().getValue());
     }
 
-    public void open() {
-        System.out.println("Laptop is open");
-    }
+
 
 
 }

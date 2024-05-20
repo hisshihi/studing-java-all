@@ -1,6 +1,6 @@
 package org.example.computer;
 
-public class Computer {
+public abstract class Computer {
 
     private Ram ram;
     private Ssd ssd;
@@ -27,6 +27,8 @@ public class Computer {
     static {
         System.out.println("static block computer");
     }
+
+    public abstract void open();
 
     public static int getCount() {
         return count;
