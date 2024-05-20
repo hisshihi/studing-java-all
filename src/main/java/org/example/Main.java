@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.computer.Computer;
+import org.example.computer.Laptop;
 import org.example.computer.Ram;
 import org.example.computer.Ssd;
 
@@ -11,6 +12,10 @@ public class Main {
         Ssd ssd = new Ssd(1024);
         Computer computer = new Computer(ram, ssd);
         computer.printState();
+
+        Laptop laptop = new Laptop(ram, ssd, 2000);
+        laptop.printState();
+        laptop.open();
 
     }
 }
