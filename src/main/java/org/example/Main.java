@@ -6,8 +6,11 @@ public class Main {
     public static void main(String[] args) {
 
         Hero warrior = new Warrior("Ivan", 15);
-        Hero mage = new Mage("Hiss", 35);
+        Mage mage = new Mage("Hiss", 35);
         Hero archer = new Archer("Arina", 23);
+
+        Mage.Owl owl = new Mage.Owl("Karasik", 11);
+
         Enemy enemy = new Enemy("KTK", 100);
 
         attackEnemy(enemy, warrior, mage, archer);
