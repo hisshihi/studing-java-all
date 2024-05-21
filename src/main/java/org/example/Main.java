@@ -11,7 +11,7 @@ public class Main {
 
 //        loadComputers(laptop, mobile);
 //        printStaticInfo(new Computer[] {laptop, mobile});
-        print(laptop, mobile);
+        printWitchRandom(laptop, mobile);
     }
 
     public static void loadComputers(Computer... computers) {
@@ -29,9 +29,9 @@ public class Main {
         }
     }
 
-    public static void print(Printable... objects) {
+    public static void printWitchRandom(Printable... objects) {
         for (Printable object : objects) {
-            object.printState();
+            object.printWithRandom();
         }
     }
 }
