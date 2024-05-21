@@ -1,37 +1,27 @@
 package org.example;
 
-import org.example.computer.*;
+import org.example.taskOop.*;
 
 public class Main {
     public static void main(String[] args) {
 
-//        Тип ссылки          Тип объекта
-        Computer laptop = new Laptop(new Ram(15), new Ssd(512), 2);
-        Computer mobile = new Mobile(new Ram(8), new Ssd(128));
+        Hero warrior = new Warrior("Ivan", 15);
+        Hero mage = new Mage("Hiss", 35);
+        Hero archer = new Archer("Arina", 23);
+        Enemy enemy = new Enemy("KTK", 100);
 
-//        loadComputers(laptop, mobile);
-//        printStaticInfo(new Computer[] {laptop, mobile});
-        printWitchRandom(laptop, mobile);
+        attackEnemy(enemy, warrior, mage, archer);
+
     }
 
-    public static void loadComputers(Computer... computers) {
-        for (Computer computer : computers) {
-            computer.open();
-        }
-    }
-    
-    public static void printStaticInfo(Computer... computers) {
-        for (Computer computer : computers) {
-            computer.printState();
-            if (computer instanceof Laptop laptop) {
-                laptop.open();
+    public static void attackEnemy(Enemy enemy, Hero... heroes) {
+        while (enemy.isAlive()) {
+            for (Hero hero : heroes) {
+                if (enemy.isAlive()) {
+                    hero.attackEnemy(enemy);
+                    System.out.println();
+                }
             }
-        }
-    }
-
-    public static void printWitchRandom(Printable... objects) {
-        for (Printable object : objects) {
-            object.printWithRandom();
         }
     }
 }
