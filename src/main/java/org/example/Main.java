@@ -15,6 +15,8 @@ public class Main {
 
         attackEnemy(enemy, warrior, mage, archer);
 
+        System.out.println(Spells.RAISING_THE_DEAD.getDescription());
+
     }
 
     public static void attackEnemy(Enemy enemy, Hero... heroes) {
