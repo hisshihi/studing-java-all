@@ -9,7 +9,7 @@ public class Main {
         Mage mage = new Mage("Hiss", 35);
         Hero archer = new Archer("Arina", 23);
 
-        Mage.Owl owl = new Mage.Owl("Karasik", 11);
+        Mage.Owl owl = mage.new Owl("Karasik", 11);
 
         Enemy enemy = new Enemy("KTK", 100);
 

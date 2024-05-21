@@ -21,7 +21,7 @@ public class Mage extends Hero{
     /*
     * Тут мы можем обращаться к классу в который вложен этот класс
     * */
-    public static class Owl {
+    public class Owl {
         private String name;
         private int damage;
 
@@ -31,12 +31,8 @@ public class Mage extends Hero{
     }
 
     public void attackEnemy(Enemy enemy) {
-        enemy.takeDamage(damage);
-        System.out.println(name + " and " + getName() + " deal joint damage");
+        enemy.takeDamage(damage + Mage.this.getDamage());
+        System.out.println(name + " and " + Mage.this.getName() + " deal joint damage");
     }
-
-        public String getName() {
-            return name;
-        }
-    }
+}
 }
