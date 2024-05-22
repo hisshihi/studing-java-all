@@ -1,9 +1,7 @@
 package org.example;
 
 import org.example.generics.List;
-import org.example.generics.weapon.Bow;
-import org.example.generics.weapon.Sword;
-import org.example.generics.weapon.Wand;
+import org.example.generics.weapon.*;
 import org.example.taskOop.*;
 
 public class Main {
@@ -22,7 +20,13 @@ public class Main {
 
     }
 
-    public static void printWeaponDamage(Hero<Wand> hero) {
+    /*
+    * Для того, чтобы принять какой-либо тип оружия нам нужно
+    * Создать дженерик который принимает типы наследованные от оружия,
+    * то есть параметризация на уровне метода
+    * И задать героя который параметризован тем типом оружия, который наседован у метода
+    * */
+    public static <T extends Weapon> void printWeaponDamage(Hero<T> hero) {
         System.out.println(hero.getWeapon().getDamage());
     }
 }
