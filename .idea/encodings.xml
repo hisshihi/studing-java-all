@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/build.gradle" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/Main.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/org/example/taskOop/Mage.java" charset="windows-1251" />
-    <file url="PROJECT" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/generics/List.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/generics/weapon/Weapon.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/taskOop/Archer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/taskOop/Hero.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/taskOop/Mage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/taskOop/Warrior.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

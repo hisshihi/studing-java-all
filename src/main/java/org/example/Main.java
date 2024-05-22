@@ -18,5 +18,11 @@ public class Main {
         Warrior<Sword> warrior = new Warrior<>("Ivan", 13);
         warrior.setWeapon(new Sword());
 
+        printWeaponDamage(mage);
+
+    }
+
+    public static void printWeaponDamage(Hero<Wand> hero) {
+        System.out.println(hero.getWeapon().getDamage());
     }
 }
