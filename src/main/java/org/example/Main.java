@@ -1,32 +1,18 @@
 package org.example;
 
+import org.example.generics.List;
 import org.example.taskOop.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        Hero warrior = new Warrior("Ivan", 15);
-        Mage mage = new Mage("Hiss", 35);
-        Hero archer = new Archer("Arina", 23);
+        List<String> list = new List<>(10);
+        list.add("String 1");
+        list.add("String 2");
+        list.add("String 3");
 
-        Mage.Owl owl = mage.new Owl("Karasik", 11);
+        Object element = list.get(1);
+        System.out.println(element);
 
-        Enemy enemy = new Enemy("KTK", 100);
-
-        attackEnemy(enemy, warrior, mage, archer);
-
-        System.out.println(Spells.RAISING_THE_DEAD.getDescription());
-
-    }
-
-    public static void attackEnemy(Enemy enemy, Hero... heroes) {
-        while (enemy.isAlive()) {
-            for (Hero hero : heroes) {
-                if (enemy.isAlive()) {
-                    hero.attackEnemy(enemy);
-                    System.out.println();
-                }
-            }
-        }
     }
 }
