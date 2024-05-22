@@ -1,6 +1,8 @@
 package org.example.taskOop;
 
-public class Archer extends Hero{
+import org.example.generics.weapon.RangeWeapon;
+
+public class Archer<T extends RangeWeapon> extends Hero<T>{
     public Archer(String name, int damage) {
         super(name, damage);
     }

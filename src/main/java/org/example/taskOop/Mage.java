@@ -1,6 +1,10 @@
 package org.example.taskOop;
 
-public class Mage extends Hero{
+import org.example.generics.weapon.MagicWeapon;
+import org.example.generics.weapon.Weapon;
+
+// Устанавливаем, что наш маг может сражаться только тем оружем которые имплементятся от магического оружия
+public class Mage<T extends MagicWeapon> extends Hero<T> {
 
     private Owl owl;
     public Mage(String name, int damage) {
