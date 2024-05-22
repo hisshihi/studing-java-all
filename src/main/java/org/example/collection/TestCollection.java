@@ -1,6 +1,7 @@
 package org.example.collection;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -81,5 +82,29 @@ public class TestCollection {
 
     }
 
+    /*
+    * Iterator в Java — это интерфейс, который используется для последовательного перебора элементов коллекций,
+    * таких как ArrayList, LinkedList, HashSet и другие.
+    * Он предоставляет методы для обхода коллекции и удаления элементов во время итерации.
+    *
+    * * boolean hasNext(): Проверяет, есть ли следующий элемент в коллекции. Возвращает true, если есть еще элементы для итерации, иначе — false.
+    * * E next(): Возвращает следующий элемент в коллекции. Если элементов больше нет, бросает исключение NoSuchElementException
+    * * void remove(): Удаляет последний элемент, возвращенный методом next(), из коллекции.
+    * Этот метод может быть вызван только после вызова метода next() и до вызова следующего метода next().
+    * Если вызвать его до next() или дважды подряд, бросает исключение IllegalStateException.
+    * */
+    public void getIterator() {
+        List<Integer> sourseList = List.of(1, 2, 3, 4, 5, 6);
+        List<Integer> list = new ArrayList<>(sourseList);
+
+        for (Iterator<Integer> iterator = list.iterator(); iterator.hasNext(); ) {
+            Integer next = iterator.next();
+            if (next == 3 || next == 4) {
+                iterator.remove();
+            }
+        }
+        System.out.println(list);
+
+    }
 
 }
