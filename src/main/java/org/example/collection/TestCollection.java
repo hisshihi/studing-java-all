@@ -107,4 +107,14 @@ public class TestCollection {
 
     }
 
+    public void listExample() {
+        org.example.generics.List<String> strings = new org.example.generics.List<>(10);
+        strings.add("One");
+        strings.add("Two");
+        strings.add("Three");
+        strings.add("Four");
+
+        strings.forEach(System.out::println);
+    }
+
 }

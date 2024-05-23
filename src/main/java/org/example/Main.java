@@ -9,7 +9,7 @@ public class Main {
 
         TestCollection testCollection = new TestCollection();
 
-        testCollection.getIterator();
+        testCollection.listExample();
 
     }
 }
