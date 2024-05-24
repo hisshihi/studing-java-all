@@ -2,7 +2,7 @@ package org.example.person;
 
 import java.util.Objects;
 
-public class Person {
+public class Person implements Comparable<Person> {
 
     private int id;
     private String firstName;
@@ -48,5 +48,11 @@ public class Person {
 
     public String getLastName() {
         return lastName;
+    }
+
+    // Реализуем метод сортировки, чтобы можно было сортировать person по id с помощью метода compare у Integer
+    @Override
+    public int compareTo(Person o) {
+        return Integer.compare(id, o.id);
     }
 }
