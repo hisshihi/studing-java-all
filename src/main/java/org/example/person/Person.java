@@ -28,6 +28,16 @@ public class Person {
         return Objects.hash(id, firstName, lastName);
     }
 
+//    Переопределили метод для строкового отображения
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
+
     public int getId() {
         return id;
     }
