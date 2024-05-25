@@ -10,4 +10,14 @@ public class ExceptionExample {
         }
     }
 
+    public int finallyTest() {
+        try {
+            return 2;
+        } catch (Throwable throwable) {
+            return 3;
+        } finally {
+            return 4;
+        }
+    }
+
 }

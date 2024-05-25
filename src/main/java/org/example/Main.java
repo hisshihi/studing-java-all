@@ -19,7 +19,12 @@ public class Main {
 //            handle exception
 //            Видим весь стек ошибки
             exception.printStackTrace();
+        } finally {
+//            Этот блок выполняется всегда
+            System.out.println("finally");
         }
+
+        System.out.println(exceptionExample.finallyTest());
 
     }
 }
