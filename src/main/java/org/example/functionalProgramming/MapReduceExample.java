@@ -1,5 +1,6 @@
 package org.example.functionalProgramming;
 
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class MapReduceExample {
@@ -75,6 +76,37 @@ public class MapReduceExample {
 //                Сумма всех возрастов, 0 - начальное значение
                 .reduce(Integer::sum)
                 // вывод
+                .ifPresent(System.out::println);
+    }
+
+    public void getPerfectStudentReturnStudent() {
+        /*
+        * Optional работает всегда с 1 экземпляром в отличии от Stream
+        * */
+        Optional<Student> maybeStudent = Stream.of(
+                new Student(21, "Denis"),
+                new Student(20, "Arina"),
+                new Student(23, "Ivan"),
+                new Student(40, "Sergey"),
+                new Student(22, "Ilia"),
+                new Student(31, "Danila"),
+                new Student(64, "Nikita"),
+                new Student(55, "Alisa")
+        )
+                .sequential()
+                /*
+                * flatMap используется, когда элементы потока сами по себе являются потоками или коллекциями.
+                * Этот метод позволяет преобразовать каждый элемент потока в новый поток,
+                * а затем "развернуть" эти вложенные потоки в единый плоский поток.
+                * */
+//                .flatMap(student -> student.getMarks().stream())
+//                .map(mark -> )
+                .reduce(((student, student2) -> student.getAge() > student2.getAge() ? student : student2));
+
+        maybeStudent.ifPresent(System.out::println);
+
+        maybeStudent.map(Student::getAge)
+                .map(age -> age * 5)
                 .ifPresent(System.out::println);
     }
 
