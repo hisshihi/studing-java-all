@@ -1,13 +1,11 @@
 package org.example;
 
-import org.example.fileExample.FileExample;
+import org.example.fileExample.InputStreamRunner;
 
 public class Main {
     public static void main(String[] args) {
 
-//        Всем привет
-        FileExample fileExample = new FileExample();
-        fileExample.getFileExample();
+        new InputStreamRunner().readFile();
 
     }
 }
