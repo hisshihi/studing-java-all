@@ -22,4 +22,9 @@ allprojects {
 
 test {
     useJUnitPlatform()
+    systemProperty 'file.encoding', 'UTF-8'
+}
+
+tasks.withType(JavaExec) {
+    systemProperty 'file.encoding', 'UTF-8'
 }
