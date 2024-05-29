@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.fileExample.ReaderExample;
 import org.example.fileExample.WriterExample;
 
 import java.io.File;
@@ -10,6 +11,8 @@ public class Main {
 
         File file = Path.of("src", "main", "resources", "writer.poem").toFile();
         new WriterExample().writerAndFile(file);
+
+        new ReaderExample().readTextFile(file);
 
     }
 }
