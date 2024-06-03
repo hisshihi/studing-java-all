@@ -1,41 +1,46 @@
 package org.example;
 
-import org.example.threadDemo.SimpleRunnable;
-import org.example.threadDemo.SimpleThread;
+import org.example.threadDemo.Counter;
+import org.example.threadDemo.CounterThread;
 
 public class Main {
     public static void main(String[] args) {
 
-        SimpleThread simpleThread = new SimpleThread();
-//        Состояние NEW
-        System.out.println(simpleThread.getName() + ": " + simpleThread.getState());
+        Counter counter = new Counter();
+        CounterThread counterThread1 = new CounterThread(counter);
+        CounterThread counterThread2 = new CounterThread(counter);
+        CounterThread counterThread3 = new CounterThread(counter);
+        CounterThread counterThread4 = new CounterThread(counter);
+        CounterThread counterThread5 = new CounterThread(counter);
+        CounterThread counterThread6 = new CounterThread(counter);
+        CounterThread counterThread7 = new CounterThread(counter);
+        CounterThread counterThread8 = new CounterThread(counter);
+        CounterThread counterThread9 = new CounterThread(counter);
 
-        SimpleRunnable simpleRunnable = new SimpleRunnable();
-        Thread runnbleThread = new Thread(new SimpleRunnable());
-        Thread lambdaThread = new Thread(() -> System.out.println("Hello from lambda: " + Thread.currentThread().getName()));
+        counterThread1.start();
+        counterThread2.start();
+        counterThread3.start();
+        counterThread4.start();
+        counterThread5.start();
+        counterThread6.start();
+        counterThread7.start();
+        counterThread8.start();
+        counterThread9.start();
 
-//        Запуск потока
-        simpleThread.start();
-        runnbleThread.start();
-        lambdaThread.start();
-
-        //        Состояние RUNNABLE
-        System.out.println(simpleThread.getName() + ": " + simpleThread.getState());
-
-//        Эта строка обозначает, что этот поток будет ждать, пока simpleThread не выполнит свою работу
         try {
-            simpleThread.join();
-            runnbleThread.join();
-            lambdaThread.join();
-
-            //        Состояние TERMINATED
-            System.out.println(simpleThread.getName() + ": " + simpleThread.getState());
+            counterThread1.join();
+            counterThread2.join();
+            counterThread3.join();
+            counterThread4.join();
+            counterThread5.join();
+            counterThread6.join();
+            counterThread7.join();
+            counterThread8.join();
+            counterThread9.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-//        Обозначает - "как только сможешь остановится, то остановись"
-        simpleThread.interrupt();
-        System.out.println(Thread.currentThread().getName());
+        System.out.println(counter.getCount());
 
     }
 }
