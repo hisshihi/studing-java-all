@@ -1,11 +1,11 @@
 package org.example;
 
-import org.example.dataAndTimeExample.DateTimeDemo;
+import org.example.dataAndTimeExample.DataAndTimeTasks;
 
 public class Main {
     public static void main(String[] args) {
 
-        new DateTimeDemo().getDateTimeDemo();
+        new DataAndTimeTasks().task8();
 
     }
 }
