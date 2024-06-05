@@ -1,30 +1,28 @@
 package org.example;
 
-import org.example.account.Account;
-import org.example.account.AccountThread;
+import org.example.threadPractice.ConsumerThread;
+import org.example.threadPractice.ProducerThread;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
 
-        Account account1 = new Account(20_000);
-        Account account2 = new Account(20_000);
+        Queue<Integer> queue = new LinkedList<>();
+        Thread producerThread = new Thread(new ProducerThread(queue));
+        Thread consumerThread = new Thread(new ConsumerThread(queue));
 
-        AccountThread accountThread1 = new AccountThread(account1, account2);
-        AccountThread accountThread2 = new AccountThread(account2, account1);
+        producerThread.start();
+        consumerThread.start();
 
-        accountThread1.start();
-        accountThread2.start();
-
-        // Дожидаемся выполнения потоков
         try {
-            accountThread1.join();
-            accountThread2.join();
-
-            System.out.println(account1);
-            System.out.println(account2);
+            producerThread.join();
+            consumerThread.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
 
     }
 }
