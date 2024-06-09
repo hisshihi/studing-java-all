@@ -22,7 +22,7 @@ public class PoolThread extends Thread{
                     task = Optional.of(tasks.remove());
                 }
             }
-            task.isPresent(Runnable::run);
+            task.isPresent();
         }
     }
 }
