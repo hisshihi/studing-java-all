@@ -1,26 +1,27 @@
 package org.example.queue;
 
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Semaphore;
 
 public class BuyerThread implements Runnable {
 
     // Очередь касс
-    private final BlockingQueue<Cashbox> cashboxes;
+    private final Semaphore cashboxes;
 
     // Конструктор для инициализации очереди касс
-    public BuyerThread(BlockingQueue<Cashbox> cashboxes) {
+    public BuyerThread(Semaphore cashboxes) {
         this.cashboxes = cashboxes;
     }
 
     @Override
     public void run() {
         try {
-            // Извлекаем и удаляем голову этой очереди и ждём освобождения очереди
-            Cashbox cashbox = cashboxes.take();
-            System.out.println(Thread.currentThread().getName() + " обслуживается в кассе " + cashbox);
+//            Получаем монитор
+            cashboxes.acquire();
+            System.out.println(Thread.currentThread().getName() + " обслуживается в какой-то касса");
             Thread.sleep(5L);
-            System.out.println(Thread.currentThread().getName() + " освобождает кассу " + cashbox);
-            cashboxes.add(cashbox);
+            System.out.println(Thread.currentThread().getName() + " освобождает какую-то кассу");
+            cashboxes.release();
             // Проверяем с помощью блока синхронизации, что только один поток может воспользоваться кассой
 //            synchronized (cashboxQueue) {
 //                while (true) {

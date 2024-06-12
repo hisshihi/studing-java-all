@@ -1,30 +1,38 @@
 package org.example;
 
-import org.example.barrier.RocketDetail;
-import org.example.barrier.RocketDetailRunnable;
+import org.example.queue.BuyerThread;
 
-import java.util.Arrays;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.List;
+import java.util.concurrent.Semaphore;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
 
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(RocketDetail.values().length, () -> System.out.println("Пуск"));
+        Semaphore cashboxes = new Semaphore(2, true);
 
-        ExecutorService executorService = Executors.newCachedThreadPool();
+        List<Thread> threads = Stream.of(
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes)
+        )
+                .map(Thread::new)
+                .peek(Thread::start)
+                .collect(Collectors.toList());
 
-        Arrays.stream(RocketDetail.values())
-                .map(detail -> new RocketDetailRunnable(detail, cyclicBarrier))
-                .forEach(executorService::submit);
-
-        executorService.shutdown();
-        try {
-            executorService.awaitTermination(1L, TimeUnit.MINUTES);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        for (Thread thread:
+            threads ) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
     }
