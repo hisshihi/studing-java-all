@@ -13,18 +13,18 @@ public class RocketDetailRunnable implements Runnable {
         this.cyclicBarrier = cyclicBarrier;
     }
 
-//    Имитируем подготовку деталей
+    //    Имитируем подготовку деталей
     /*
-    * Поток имитирует подготовку детали, ожидая 1 секунду,
-    * после чего уменьшает счётчик CountDownLatch.
-    * */
+     * Поток имитирует подготовку детали, ожидая 1 секунду,
+     * после чего уменьшает счётчик CountDownLatch.
+     * */
     @Override
     public void run() {
-        System.out.println("Готовится деталь: " + rocketDetail);
+        System.out.println("Готовится деталь " + rocketDetail);
         try {
             Thread.sleep(1000L);
             System.out.println("Деталь готова и ожидает: " + rocketDetail);
-//            Ожидаем, когда все потоки вызовут этот метод
+//            Ожидает, пока определённое кол-во потоков не вызовут этот метод
             cyclicBarrier.await();
             System.out.println("Деталь использована: " + rocketDetail);
         } catch (InterruptedException | BrokenBarrierException e) {
