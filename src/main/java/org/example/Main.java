@@ -1,39 +1,24 @@
 package org.example;
 
-import org.example.queue.BuyerThread;
+import org.example.myExamples.MyExamples;
 
+import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.Semaphore;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
 
-        Semaphore cashboxes = new Semaphore(2, true);
+        List<String> strings = List.of("Денис", "Арина", "Дуся", "Роза", "Буся", "Бу");
 
-        List<Thread> threads = Stream.of(
-                new BuyerThread(cashboxes),
-                new BuyerThread(cashboxes),
-                new BuyerThread(cashboxes),
-                new BuyerThread(cashboxes),
-                new BuyerThread(cashboxes),
-                new BuyerThread(cashboxes),
-                new BuyerThread(cashboxes),
-                new BuyerThread(cashboxes)
-        )
-                .map(Thread::new)
-                .peek(Thread::start)
-                .collect(Collectors.toList());
+        MyExamples examples = new MyExamples();
+        List<String> task1 = examples.task1(strings);
+        System.out.println(task1);
 
-        for (Thread thread:
-            threads ) {
-            try {
-                thread.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        examples.task2();
+        examples.task3();
+
+        List<Integer> numbers = Arrays.asList(10, 20, 30, 40, 50, 40, 70);
+        examples.task4(numbers);
 
     }
 }
