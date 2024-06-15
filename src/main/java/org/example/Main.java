@@ -1,13 +1,11 @@
 package org.example;
 
-import org.example.threadTasks.ThreadTasks;
+import patternExample.PatternExample;
 
 public class Main {
     public static void main(String[] args) {
 
-        ThreadTasks threadTasks = new ThreadTasks();
-//        threadTasks.task1();
-        threadTasks.task2();
+        new PatternExample().pattern1();
 
     }
 }
