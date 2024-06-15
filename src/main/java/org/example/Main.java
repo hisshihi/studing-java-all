@@ -1,11 +1,15 @@
 package org.example;
 
-import patternExample.PatternExample;
+import patternExample.PatternFindExample;
 
 public class Main {
     public static void main(String[] args) {
 
-        new PatternExample().pattern1();
+        PatternFindExample patternFindExample = new PatternFindExample();
+        patternFindExample.patternFind();
+        patternFindExample.patternFindInStartLines();
+        patternFindExample.patternFindByNameGroupAndLink();
+        patternFindExample.removeGroupMethod();
 
     }
 }
