@@ -1,14 +1,12 @@
 package org.example;
 
-import org.example.regularExpressionsTasks.RegularExpressionsTasks;
+import org.example.reflectionApiExample.ReflectionApiExample;
 
 public class Main {
     public static void main(String[] args) {
 
-        RegularExpressionsTasks expressionsTasks = new RegularExpressionsTasks();
-        expressionsTasks.task1();
-        expressionsTasks.task2();
-        expressionsTasks.task3();
+        ReflectionApiExample apiExample = new ReflectionApiExample();
+        apiExample.reflectionTest();
 
     }
 }
