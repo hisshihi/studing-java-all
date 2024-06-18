@@ -1,4 +1,4 @@
-package org.example.barrier;
+package org.example.latch;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;

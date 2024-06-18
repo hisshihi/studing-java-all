@@ -23,4 +23,12 @@ public class ReflectionUser extends ReflectionPerson implements Serializable, Co
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "ReflectionUser{" +
+                "id=" + getId() + // Добавляем вывод id
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
