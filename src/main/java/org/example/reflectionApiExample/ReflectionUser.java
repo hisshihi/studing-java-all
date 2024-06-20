@@ -5,10 +5,13 @@ import java.io.Serializable;
 public class ReflectionUser extends ReflectionPerson implements Serializable, Comparable<ReflectionUser> {
 
     private String name;
+    @MinAge(21)
+    private int age;
 
-    public ReflectionUser(Long id, String name) {
+    public ReflectionUser(Long id, String name, int age) {
         super(id);
         this.name = name;
+        this.age = age;
     }
 
     @Override

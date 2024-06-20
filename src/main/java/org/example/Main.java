@@ -10,11 +10,6 @@ public class Main {
 
         ReflectionApiExample apiExample = new ReflectionApiExample();
 
-        ReflectionUser user = new ReflectionUser(21L, "Hiss");
-        ReflectionUser arina = new ReflectionUser(21L, "Arina");
-        apiExample.getUserId(arina);
-        apiExample.getUserName(arina);
-        apiExample.getAnAccessModifier(arina);
-        apiExample.getUserMethods(user);
+        apiExample.reflectionTest();
     }
 }

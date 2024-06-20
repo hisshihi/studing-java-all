@@ -4,7 +4,7 @@ import java.lang.reflect.*;
 
 public class ReflectionApiExample {
 
-    ReflectionUser user = new ReflectionUser(21L, "Hiss");
+    ReflectionUser user = new ReflectionUser(21L, "Hiss", 24);
 
     public void reflectionTest() {
         Class<? extends ReflectionUser> aClass = user.getClass();
