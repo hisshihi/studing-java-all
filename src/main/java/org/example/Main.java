@@ -1,15 +1,14 @@
 package org.example;
 
-import org.example.reflectionApiExample.ReflectionApiExample;
-import org.example.reflectionApiExample.ReflectionUser;
-
-import java.lang.reflect.InvocationTargetException;
+import org.example.reflectionApiTasks.Car;
+import org.example.reflectionApiTasks.ReflectionApiTasks;
 
 public class Main {
-    public static void main(String[] args) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) {
 
-        ReflectionApiExample apiExample = new ReflectionApiExample();
+        Car car = new Car("Toyota", "Corolla");
+        ReflectionApiTasks apiTasks = new ReflectionApiTasks();
+        System.out.println(apiTasks.task1(car));
 
-        apiExample.reflectionTest();
     }
 }
