@@ -36,3 +36,20 @@ INSERT INTO company(id, name, date)
 VALUES (1, 'HissInc', '2024-07-02'),
        (2, 'Apple', '2002-10-18'),
        (3, 'OpenAI', '2013-08-10');
+
+-- DROP TABLE employee;
+
+CREATE TABLE employee
+(
+    id         SERIAL PRIMARY KEY,
+    first_name VARCHAR(128) NOT NULL,
+    last_name  VARCHAR(128) NOT NULL,
+    salary     INT,
+    UNIQUE (first_name, last_name)
+);
+
+
+INSERT INTO employee(first_name, last_name, salary)
+VALUES ('Hiss', 'Dev', 10000),
+       ('Arina', 'Kovaleva', 9000),
+       ('Sergey', 'Ushakov', 7000);
