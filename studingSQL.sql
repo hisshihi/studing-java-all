@@ -53,3 +53,18 @@ INSERT INTO employee(first_name, last_name, salary)
 VALUES ('Hiss', 'Dev', 10000),
        ('Arina', 'Kovaleva', 9000),
        ('Sergey', 'Ushakov', 7000);
+
+-- Выборка данных
+-- DISTINCT - используется для выборки уникальных значений
+SELECT DISTINCT id,
+                first_name f_name,
+                last_name  l_name,
+                salary
+FROM employee
+-- Сортировка по какому-то значению
+ORDER BY first_name, salary DESC
+-- Показывает, что макс. кол-во записей - 2
+    LIMIT 2
+-- Пропустить сколько-то записей
+OFFSET 2
+;
