@@ -96,3 +96,13 @@ FROM employee;
 -- || тоже самое, что и конкат а now показывается текущую дату
 SELECT upper(employee.first_name), employee.first_name || ' ' || employee.last_name fio, now()
 FROM employee;
+
+SELECT id, employee.first_name
+FROM employee
+WHERE company_id IS NOT NULL
+UNION
+-- При проверке на null нужно использовать IS
+
+SELECT id, employee.first_name
+from employee
+WHERE salary IS NULL;
