@@ -35,14 +35,13 @@ VALUES (1, 'HissInc', '2024-07-02'),
        (2, 'Nvidia', '2002-10-18'),
        (3, 'OpenAI', '2013-08-10');
 
--- DROP TABLE employee;
 
 CREATE TABLE employee
 (
     id         SERIAL PRIMARY KEY,
     first_name VARCHAR(128) NOT NULL,
     last_name  VARCHAR(128) NOT NULL,
-    company_id INT REFERENCES company (id),
+    company_id INT REFERENCES company (id) ON DELETE CASCADE ,
     salary     INT,
     UNIQUE (first_name, last_name)
 --     FOREIGN KEY (company_id) REFERENCES company
@@ -124,3 +123,14 @@ FROM employee;
 select *
 from employee
 where company_id in (select company.id from company where company.date > '2010-01-01');
+
+delete
+from employee
+where employee.company_id is null;
+
+delete from employee
+where salary = (select min(salary) from employee);
+
+delete from company where id = 2;
+
+select * from employee;
