@@ -73,3 +73,21 @@ ORDER BY salary DESC
 -- WHERE salary IN (5000, 10000) - найти конкретные значения
 -- WHERE salary IN (5000, 10000) OR first_name ILIKE 'a%' - комбинация запросов, ищем по конкретной зарплате или по имени
 ;
+
+-- Агрегирующие функции
+-- sum, avg, max, min, count
+-- sum - получение суммы чего-то
+SELECT sum(employee.salary)
+FROM employee;
+-- avg - среднее значение
+SELECT avg(employee.salary)
+FROM employee;
+-- count - получить кол-во строк
+SELECT count(employee.salary)
+FROM employee;
+-- Конкатенация строк
+SELECT upper(employee.first_name), concat(employee.first_name, ' ', employee.last_name) fio
+FROM employee;
+-- || тоже самое, что и конкат а now показывается текущую дату
+SELECT upper(employee.first_name), employee.first_name || ' ' || employee.last_name fio, now()
+FROM employee;
