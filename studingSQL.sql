@@ -1,6 +1,5 @@
 -- Создание таблицы
-CREATE
-DATABASE company_repository;
+CREATE DATABASE company_repository;
 
 -- Создание схемы
 CREATE SCHEMA company_storage;
@@ -14,8 +13,7 @@ CREATE TABLE company
 --     Описываем структуру таблицы
     id   INT PRIMARY KEY,
     name VARCHAR(128) UNIQUE NOT NULL,
-    date DATE                NOT NULL CHECK ( date > '2000-01-01' AND date < '2024-07-03'
-) ,
+    date DATE                NOT NULL CHECK ( date > '2000-01-01' AND date < '2024-07-03'),
 -- Также можно указывать ограничения сразу по нескольким полям
     PRIMARY KEY (id),
     -- Не можем вставить компания с одним и тем же названием и годом
@@ -61,10 +59,17 @@ SELECT DISTINCT id,
                 last_name  l_name,
                 salary
 FROM employee
+-- LIKE Находим подстроку в строке
+WHERE salary IN (5000, 10000)
+   OR (first_name ILIKE 'a%'
+    AND last_name LIKE '%ev')
 -- Сортировка по какому-то значению
-ORDER BY first_name, salary DESC
+ORDER BY salary DESC
 -- Показывает, что макс. кол-во записей - 2
-    LIMIT 2
+-- LIMIT 2
 -- Пропустить сколько-то записей
-OFFSET 2
+-- OFFSET 2
+-- BETWEEN - диапазон
+-- WHERE salary IN (5000, 10000) - найти конкретные значения
+-- WHERE salary IN (5000, 10000) OR first_name ILIKE 'a%' - комбинация запросов, ищем по конкретной зарплате или по имени
 ;
