@@ -41,7 +41,7 @@ CREATE TABLE employee
     id         SERIAL PRIMARY KEY,
     first_name VARCHAR(128) NOT NULL,
     last_name  VARCHAR(128) NOT NULL,
-    company_id INT REFERENCES company (id) ON DELETE CASCADE ,
+    company_id INT REFERENCES company (id) ON DELETE CASCADE,
     salary     INT,
     UNIQUE (first_name, last_name)
 --     FOREIGN KEY (company_id) REFERENCES company
@@ -128,9 +128,29 @@ delete
 from employee
 where employee.company_id is null;
 
-delete from employee
+delete
+from employee
 where salary = (select min(salary) from employee);
 
-delete from company where id = 2;
+delete
+from company
+where id = 2;
 
-select * from employee;
+select *
+from employee;
+
+update employee
+set company_id = 2,
+    salary     = 8200
+where company_id is null
+;
+
+update employee
+set salary = 12000
+where id = 1
+    returning id, first_name || ' ' || employee.last_name fio, salary;
+-- returning указываем, какие строки возвращаем
+
+select *
+from employee
+order by salary desc;
