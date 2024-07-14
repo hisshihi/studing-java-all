@@ -106,3 +106,21 @@ UNION
 SELECT id, employee.first_name
 from employee
 WHERE salary IS NULL;
+
+-- Выбор средней зп 2 худших сотрудников
+SELECT avg(salary)
+FROM (SELECT *
+      FROM employee
+      ORDER BY salary DESC
+          LIMIT 2) empl;
+
+SELECT *,
+       (SELECT avg(salary)
+        FROM employee) avg,
+       (SELECT sum(salary)
+        FROM employee) sum
+FROM employee;
+
+select *
+from employee
+where company_id in (select company.id from company where company.date > '2010-01-01');
