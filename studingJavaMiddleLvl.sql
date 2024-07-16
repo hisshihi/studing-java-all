@@ -105,6 +105,7 @@ HAVING count(e.id) > 0;
 Это разбиение данных на "окна"
 Т.е. можно разбить сотрудников по компаниям, тем самым получаем "окно"
 */
+create view employee_view as
 select company.name,
        e.first_name,
        e.salary,
@@ -113,9 +114,40 @@ select company.name,
 --        max(e.salary) OVER (PARTITION BY company.name)
 --        row_number() over (partition by company.name),
 --        Также можно делать группировку внутри окна
-       -- Также с помощью partition by можно делать сортировку "rank" внутри каждого окна
+-- Также с помощью partition by можно делать сортировку "rank" внутри каждого окна
 --        dense_rank() over (partition by company.name ORDER BY e.salary nulls first )
 from company
          left join public.employee e
                    on company.id = e.company_id
 order by company.name;
+
+/*
+Представление - мы создаём представление какого-либо запроса
+и можем к нему обращаться с дальнейшими действиями.
+Т.е. мы как снова обращаемся к запросу, который хранит в себе представление.
+Будто мы сделали подзапрос, чтобы можно было делать более лаконичные запросы.
+*/
+
+select *
+from employee_view
+where name = 'HissInc';
+
+
+/*
+Чтобы закешировать запрос, нужно добавить materialized view
+*/
+create materialized view m_employee_view as
+select company.name,
+       e.first_name,
+       e.salary,
+       lag(e.salary) over (ORDER BY e.salary) - e.salary
+from company
+         left join public.employee e
+                   on company.id = e.company_id
+order by company.name;
+
+select *
+from m_employee_view;
+
+-- Для обновления данных в представлнии нужно использовать
+refresh materialized view m_employee_view;
