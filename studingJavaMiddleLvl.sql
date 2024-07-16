@@ -99,3 +99,23 @@ FROM company
 GROUP BY company.id
 -- Условие именно для группы
 HAVING count(e.id) > 0;
+
+/*
+Изучил что такое оконные функции
+Это разбиение данных на "окна"
+Т.е. можно разбить сотрудников по компаниям, тем самым получаем "окно"
+*/
+select company.name,
+       e.first_name,
+       e.salary,
+       lag(e.salary) over (ORDER BY e.salary) - e.salary
+--        Также можно использовать оконные функции в агрегирующих функциях
+--        max(e.salary) OVER (PARTITION BY company.name)
+--        row_number() over (partition by company.name),
+--        Также можно делать группировку внутри окна
+       -- Также с помощью partition by можно делать сортировку "rank" внутри каждого окна
+--        dense_rank() over (partition by company.name ORDER BY e.salary nulls first )
+from company
+         left join public.employee e
+                   on company.id = e.company_id
+order by company.name;
