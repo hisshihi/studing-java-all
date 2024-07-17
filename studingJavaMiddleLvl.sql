@@ -151,3 +151,13 @@ from m_employee_view;
 
 -- Для обновления данных в представлнии нужно использовать
 refresh materialized view m_employee_view;
+
+alter table if exists employee
+add column gender INT;
+
+alter table employee
+rename f_name to first_name;
+
+update employee
+set gender = 1
+where id != 2;
